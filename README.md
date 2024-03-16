@@ -34,3 +34,21 @@ Kod javascript może reagować na zdarzenia w dokumencie przez zdefiniowanie eve
 Vue definiuje obsługę zdarzeń dyrektywą v-on. Do ostatniego przykładu możemy pod znacznikiem p dodać przycisk, którego kliknięcie będzie zmieniało kolor akapitu:
 
 `<button v-on:click="courseClass = courseClass == 'c1' ? 'c2' : 'c1'">Kolor</button>`
+
+## v-model
+Ta dyrektywa to skrót łączący v-bind i v-on w celu stworzenia dwukierunkowego wiązania między elementem dokumentu, a zmienną reaktywną.
+
+W ostatnim przykładzie usuwamy style i przycisk do zmiany koloru. Zamiast tego wprowadzamy element` <input>` i opisujący go akapit. Aby wartością dla input stała się nasza nazwa kursu wiążemy go przy pomocy v-bind z course.name.
+
+Wiązanie v-bind działa w jedną stronę i nie spowoduje aktualizacji nazwy kursu w akapicie powyżej po zmianie tekstu w kontrolce. Aby tak się stało trzeba nasłuchiwać i reagować na zmiany w input. Realizujemy to dyrektywą v-on dla zdarzenia input. Definiujemy funkcję, która po zmianie wartości w kontrolce input zmienia wartość pola name zmiennej reaktywnej course.
+
+`function onInput(e) {
+    course.name = e.target.value
+}`
+
+**`<p>Kurs: {{ course.name }}, uczestnicy: {{ course.participants }}</p>
+    <p>Zmień nazwę kursu:</p>
+    <input size="50" :value="course.name" @input="onInput">`**
+
+### or
+**`<input size="50" v-model="course.name">`**

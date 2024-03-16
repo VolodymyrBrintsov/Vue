@@ -1,21 +1,14 @@
 <template>
     <h1>Hello Vue!</h1>
-    <p :class="courseClass">
-        Kurs: {{ course.name }}, uczestnicy: {{ course.participants }}
-    </p>
-    <button @click="changeColor">Kolor</button>
+    <p>Kurs: {{ course.name }}, uczestnicy: {{ course.participants }}</p>
+    <p>Zmień nazwę kursu:</p>
+    <input size="50" v-model="course.name">
 </template>
 
 <script setup>
-    import { ref, reactive } from 'vue'
+    import { reactive } from 'vue'
     const course = reactive({ name: 'Programowanie kreatywne', participants: 10 })
-    const courseClass = ref('c1')
-    function changeColor() {
-        courseClass.value = courseClass.value == 'c1' ? 'c2' : 'c1'
+    function onInput(e) {
+        course.name = e.target.value
     }
 </script>
-
-<style scoped>
-    .c1 { color: blue }
-    .c2 { color: red }
-</style>
