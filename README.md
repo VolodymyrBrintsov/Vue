@@ -19,3 +19,10 @@ w js
 w vue
 1. `reactive` - object (objekt obwijający inny objekt)
 2. `ref` - zmienna prosta
+
+## v-bind
+To dyrektywa wiążąca atrybut HTML z kodem javascript i zmiennymi reaktywnymi (nie można używać podwójnych wąsów wewnątrz znaczników HTML). Co ważne dla atrybutu class można mieszać w jednym znaczniku odwołania statyczne i dynamiczne. Zostaną one w prawidłowy sposób połączone
+
+**`const courseClass = ref('c1')`**
+
+**`<p :class="courseClass"> Kurs: {{ course.name }}, uczestnicy: {{ course.participants }}</p>`**
