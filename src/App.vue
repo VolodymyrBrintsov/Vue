@@ -1,17 +1,17 @@
 <template>
     <h1>Hello Vue!</h1>
-    <p>
-        <span>Kurs: {{ course.name }}</span>
-        <span v-show="pVisible">, uczestnicy: {{ course.participants }}</span>
-    </p>
-    <button @click="showParticipant">Uczestnicy</button>
+    <table>
+        <tr v-for="c, index in courses" :key="c.id">
+            <td>{{ index + 1 }}.</td>
+            <td>Kurs: {{ c.name }}</td>
+            <td>Uczestnicy: {{ c.participants }}</td>
+        </tr>
+    </table>
+    <p><button @click="courses.reverse()">Odwróć</button></p>
+    <p><button @click="courses = courses.filter(c => c.exam)">Z egzaminem</button></p>
+
 </template>
 
 <script setup>
-    import { ref, reactive } from 'vue'
-    const course = reactive({ name: 'Programowanie kreatywne', participants: 10 })
-    const pVisible = ref(true)
-    function showParticipant() {
-        pVisible.value = !pVisible.value
-    }
-</script>
+    import courses from './data.js'
+</script>   

@@ -67,3 +67,19 @@ Chcemy stworzyć przycisk do pokazywania/ukrywania liczby uczestników kursu - j
     <span v-else>, liczba uczestników ukryta.</span>`**
 
 - usuwa spany
+
+## v-for
+Dość często zachodzi potrzeba wyrenderowania listy podobnych elementów różniących się danymi. Pomaga w tym dyrektywa v-for.
+
+**\<template>\
+&emsp; \<h1>Hello Vue!</h1>\
+&emsp; \<template v-for="c, index in courses" :key="c.id">\
+&emsp; &emsp; \<p>{{ index + 1 }}.</p>
+&emsp; &emsp; \<p>Kurs: {{ c.name }}</p>
+&emsp; &emsp; \<p>Uczestnicy: {{ c.participants }}</p>
+&emsp; \</template>\
+\</template>**
+
+### responsywność tablic:
+1. `<p><button @click="courses.reverse()">Odwróć</button></p>`
+2. `<p><button @click="courses = courses.filter(c => c.exam)">Z egzaminem</button></p>`
