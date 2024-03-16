@@ -26,3 +26,11 @@ To dyrektywa wiążąca atrybut HTML z kodem javascript i zmiennymi reaktywnymi 
 **`const courseClass = ref('c1')`**
 
 **`<p :class="courseClass"> Kurs: {{ course.name }}, uczestnicy: {{ course.participants }}</p>`**
+
+## v-on
+
+Kod javascript może reagować na zdarzenia w dokumencie przez zdefiniowanie event listeners dla poszczególnych znaczników. Typowym przykładem będzie nasłuchiwanie zdarzenia click na przycisku.
+
+Vue definiuje obsługę zdarzeń dyrektywą v-on. Do ostatniego przykładu możemy pod znacznikiem p dodać przycisk, którego kliknięcie będzie zmieniało kolor akapitu:
+
+`<button v-on:click="courseClass = courseClass == 'c1' ? 'c2' : 'c1'">Kolor</button>`
