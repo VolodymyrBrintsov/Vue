@@ -52,3 +52,18 @@ Wiązanie v-bind działa w jedną stronę i nie spowoduje aktualizacji nazwy kur
 
 ### or
 **`<input size="50" v-model="course.name">`**
+
+## v-if i v-show
+Te dyrektywy pozwalają pokazywać warunkowo elementy dokumentu.
+
+Chcemy stworzyć przycisk do pokazywania/ukrywania liczby uczestników kursu - jego kliknięcie będzie przełączało wartość zmiennej pVisible między true i false. W akapicie wyróżnimy dwa elementy span jeden na nawę kursu i drugi na uczestników. 
+
+**`<span v-show="pVisible">, uczestnicy: {{ course.participants }}</span>`**
+- renderuje wszystkie spany
+
+### or
+
+**`<span v-if="pVisible">, uczestnicy: {{ course.participants }}</span>
+    <span v-else>, liczba uczestników ukryta.</span>`**
+
+- usuwa spany

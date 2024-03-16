@@ -1,14 +1,17 @@
 <template>
     <h1>Hello Vue!</h1>
-    <p>Kurs: {{ course.name }}, uczestnicy: {{ course.participants }}</p>
-    <p>Zmień nazwę kursu:</p>
-    <input size="50" v-model="course.name">
+    <p>
+        <span>Kurs: {{ course.name }}</span>
+        <span v-show="pVisible">, uczestnicy: {{ course.participants }}</span>
+    </p>
+    <button @click="showParticipant">Uczestnicy</button>
 </template>
 
 <script setup>
-    import { reactive } from 'vue'
+    import { ref, reactive } from 'vue'
     const course = reactive({ name: 'Programowanie kreatywne', participants: 10 })
-    function onInput(e) {
-        course.name = e.target.value
+    const pVisible = ref(true)
+    function showParticipant() {
+        pVisible.value = !pVisible.value
     }
 </script>
